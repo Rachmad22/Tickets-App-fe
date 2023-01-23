@@ -1,0 +1,72 @@
+/* DETAIL */
+#movie-details .detail p {
+  font-size: 18px;
+  font-weight: 500px;
+  color: #4E4B66;
+  margin-top: 10px;
+}
+
+#movie-details .detail .table-details .row .sub-title {
+  font-size: 16px;
+  color: #8692A6;
+  margin-bottom: 1px;
+} 
+
+#movie-details .detail .table-details .row .content {
+  font-size: 17px;
+  color: black;
+} 
+
+#movie-details .detail .table-details .synopsis {
+  margin-top: 8px;
+  padding-top: 18px;
+  border-top: 1px solid #DEDEDE;
+}
+
+#movie-details .detail .table-details .synopsis .sub-title-synopsis {
+  margin-bottom: 0;
+}
+
+#movie-details .detail .table-details .synopsis p {
+  font-size: 15px;
+  line-height: 30px;
+  text-align: justify;
+}
+
+/* DATE */
+#movie-details .show-times .dropdown-date-city .date {
+  width: 200px;
+  padding: 8px 15px 8px 15px;
+  background-color: #EFF0F6;
+  color: #4E4B66;
+  font-size: 14px;
+  border-color: #EFF0F6;
+  border-radius: 10px;
+  margin-left: 10px;
+}
+
+#movie-details .show-times .dropdown-date-city .date:focus {
+  box-shadow: 0px 4px 10px 3px rgba(0, 0, 0, 0.11);
+  border-color: #5F2EEA;
+}
+
+/* ADDRESS */
+#movie-details .show-times .dropdown-date-city .address {
+  width: 200px;
+  padding: 8px 15px 8px 15px;
+  background-color: #EFF0F6;
+  color: #4E4B66;
+  font-size: 14px;
+  border-color: #EFF0F6;
+  border-radius: 10px;
+}
+
+#movie-details .show-times .dropdown-date-city .address:focus {
+  box-shadow: 0px 4px 10px 3px rgba(0, 0, 0, 0.11);
+  border-color: #5F2EEA;
+}
+
+/* CARD BIOSKOP */
+#movie-details .detail .card .time .col-3 p {
+  font-size: 30px;
+}

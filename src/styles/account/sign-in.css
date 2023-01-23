@@ -1,0 +1,99 @@
+#Sign-in {
+  background-color: #dadada;
+}
+
+/* LEFT-SIDE' */
+#Sign-in .side-left {
+  background-image: url(../../asset/Background1.jpg);
+  height: 120vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#Sign-in .side-left p {
+  font-size: 37px;
+  color: white;
+
+}
+
+#Sign-in .side-left img {
+  width: 400px;
+}
+
+/* RIGHT */
+#Sign-in .right-side .title,
+.register {
+  margin-top: 200px;
+}
+
+#Sign-in .right-side {
+  background-color: white;
+}
+
+#Sign-in .right-side .container {
+  width: 350px;
+}
+
+#Sign-in .title h1 {
+  color: black;
+}
+
+#Sign-in .title p {
+  font-size: 13px;
+  font-family: arial;
+  color: #AAAAAA;
+}
+
+#Sign-in .email,
+#Sign-in .password {
+  font-size: 11px;
+  padding: 12px 12px 12px 20px;
+  border-color: #DEDEDE;
+}
+
+#Sign-in .email:focus {
+  box-shadow: 0px 4px 10px 3px rgba(0, 0, 0, 0.11);
+  border-color: #5F2EEA;
+}
+
+#Sign-in .password:focus {
+  box-shadow: 0px 4px 10px 3px rgba(0, 0, 0, 0.11);
+  border-color: #5F2EEA;
+}
+
+#Sign-in label {
+  font-size: 11px;
+  color: #4E4B66;
+  margin-top: 14px;
+}
+
+#Sign-in input {
+  margin: auto;
+}
+
+/* CREAT ACCOUNT */
+#Sign-in .creat-account .btn {
+  color: white;
+  background-color: #5F2EEA;
+  font-size: 13px;
+  margin: 25px 0;
+  padding: 15px 0;
+  border-radius: 12px;
+}
+
+/* QUESTION LOG IN*/
+#Sign-in .question {
+  font-size: 11px;
+  color: #4E4B66;
+  margin-bottom: 8px;
+}
+
+#Sign-in .question a {
+  color: #5F2EEA;
+  text-decoration: none;
+}
+
+#Sign-in .question a:hover {
+  color: #5F2EEA;
+  text-decoration: underline;
+}

@@ -1,0 +1,113 @@
+/* BODY */
+#view-all {
+  background-color: #f1f1f1;
+}
+
+/* SEARCH */
+#view-all .search {
+  padding-top: 40px;
+}
+
+#view-all .search .sub-title {
+  font-size: 23px;
+  color: black;
+}
+
+#view-all .search .dropdown select {
+  width: 100px;
+  padding: 8px 10px;
+  background-color: white;
+  color: #4E4B66;
+  font-size: 14px;
+  border-color: #DEDEDE;
+  border-radius: 10px;
+}
+
+#view-all .search .dropdown select:focus {
+  box-shadow: 0px 4px 10px 3px rgba(0, 0, 0, 0.11);
+  border-color: #5F2EEA;
+}
+
+#view-all .search .search-movie input {
+  padding: 8px 15px 8px 15px;
+  background-color: white;
+  color: #4E4B66;
+  font-size: 14px;
+  border-color: #DEDEDE;
+  border-radius: 10px;
+  margin-left: 10px;
+}
+
+#view-all .search .search-movie input:focus {
+  box-shadow: 0px 4px 10px 3px rgba(0, 0, 0, 0.11);
+  border-color: #5F2EEA;
+}
+
+
+
+/* MONTH */
+#view-all .btn-month .month {
+  font-size: 12px;
+  border-color: #5F2EEA;
+  color: #5F2EEA;
+}
+
+#view-all .btn-month .now {
+  font-size: 12px;
+  border-color: #5F2EEA;
+  background-color: #5F2EEA;
+  color: white;
+}
+
+#view-all .btn-month .month:hover {
+  background-color: #5F2EEA;
+  border-color: #5F2EEA;
+  color: white;
+}
+
+/* MOVIES */
+#view-all .movies {
+  margin-top: 25px;
+  background-color: white;
+  border-radius: 10px;
+  padding: 70px;
+}
+
+#view-all .movies .card-movies .card {
+  border-color: white;
+}
+
+#view-all .movies .card-movies .title-movie {
+  font-size: 17px;
+  font-weight: bold;
+  line-height: 25px;
+}
+
+#view-all .movies .card-movies .genre {
+  font-size: 11px;
+  font-weight: bold;
+  color: #A0A3BD;
+}
+
+#view-all .movies .card-movies .btn {
+  font-size: 12px;
+  border-color: #5F2EEA;
+  color: #5F2EEA;
+}
+
+#view-all .movies .card-movies .btn:hover {
+  background-color: #5F2EEA;
+  border-color: #5F2EEA;
+  color: white;
+}
+
+/* PAGINATION */
+#view-all .paginat ul li .active{
+  border-color: #DEDEDE;
+  background-color: #5F2EEA;
+}
+
+#view-all .paginat ul li a:focus {
+  background-color:#5F2EEA;
+  color: white;
+}

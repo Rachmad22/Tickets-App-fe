@@ -1,0 +1,126 @@
+#Sign-up {
+  background-color: #dadada;
+}
+
+/* LEFT-SIDE' */
+#Sign-up .side-left {
+  background-image: url(../../asset/Background1.jpg);
+  height: 120vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#Sign-up .side-left p {
+  font-size: 37px;
+  color: white;
+  
+}
+
+#Sign-up .side-left img {
+  width: 400px;
+}
+
+/* RIGHT */
+#Sign-up .right-side .title, .register {
+  margin-top: 80px;
+}
+
+#Sign-up .right-side {
+  background-color: white;
+}
+
+#Sign-up .right-side .container {
+  width: 350px;
+}
+
+#Sign-up .title h1 {
+  color: black;
+  font-weight: 600;
+}
+
+#Sign-up .title p {
+  font-size: 13px;
+  font-family: arial;
+  color: #AAAAAA;
+}
+
+#Sign-up .username,
+#Sign-up .email,
+#Sign-up .phone,
+#Sign-up .password {
+  font-size: 11px;
+  padding: 12px 12px 12px 20px;
+  border-color: #DEDEDE;
+}
+
+#Sign-up .username:focus {
+  box-shadow: 0px 4px 10px 3px rgba(0, 2, 134, 0.11);
+  border-color: #5F2EEA;
+}
+
+#Sign-up .email:focus {
+  box-shadow: 0px 4px 10px 3px rgba(0, 0, 0, 0.11);
+  border-color: #5F2EEA;
+}
+
+#Sign-up .phone:focus {
+  box-shadow: 0px 4px 10px 3px rgba(0, 0, 0, 0.11);
+  border-color: #5F2EEA;
+}
+
+#Sign-up .password:focus {
+  box-shadow: 0px 4px 10px 3px rgba(0, 0, 0, 0.11);
+  border-color: #5F2EEA;
+}
+
+#Sign-up label {
+  font-size: 11px;
+  color: #4E4B66;
+  margin-top: 14px;
+}
+
+#Sign-up .form-check-input {
+  font-size: 13px;
+  margin-top: 15px;
+  border-color: #EFC81A;
+}
+
+#Sign-up .form-check-input:checked {
+  background-color: #EFC81A;
+  border-color: #EFC81A;
+}
+
+#Sign-up .form-check-input:focus {
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.11);
+  border-color: #EFC81A;
+}
+
+#Sign-up input {
+  margin: auto;
+}
+
+/* CREAT ACCOUNT */
+#Sign-up .creat-account .btn {
+  color: white;
+  background-color: #5F2EEA;
+  font-size: 13px;
+  margin: 25px 0;
+  padding: 15px 0;
+  border-radius: 12px;
+}
+
+/* QUESTION LOG IN*/
+#Sign-up .question {
+  font-size: 11px;
+  color: #4E4B66;
+}
+
+#Sign-up .question a {
+  color: #5F2EEA;
+  text-decoration: none;
+}
+
+#Sign-up .question a:hover {
+  color: #5F2EEA;
+  text-decoration: underline;
+}

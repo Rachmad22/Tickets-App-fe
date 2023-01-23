@@ -1,0 +1,14 @@
+/* NAVBAR */
+#navbar {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#navbar .navbar ul li {
+  padding-left: 30px;
+}
+
+#navbar .navbar .btn {
+  padding: 7px 40px;
+  font-size: 15px;
+  background-color: #5F2EEA;
+}

@@ -1,0 +1,54 @@
+/* ORDER MOVIE */
+#payment-page .payment .side-left {
+  border-radius: 10px;
+  background-color: white;
+}
+
+#payment-page .payment .side-left .payment-method button {
+  width: 100%;
+  padding: 10px;
+}
+
+#payment-page .payment .side-left .payment-method button img {
+  width: 50%;
+}
+
+/* BUTTON CHECKOUT */
+#payment-page .payment .button-checkout .Pay {
+  font-size: 14px;
+  border-radius: 4px;
+  background-color: #5F2EEA;
+}
+
+#payment-page .payment .button-checkout .Pay:hover {
+  color: #5F2EEA;
+  border-radius: 4px;
+  background-color: white;
+  border: 1px solid #5F2EEA;
+}
+
+#payment-page .payment .button-checkout .Previous {
+  font-size: 14px;
+  color: #5F2EEA;
+  border-radius: 4px;
+  background-color: white;
+  border: 1px solid #5F2EEA;
+}
+
+#payment-page .payment .button-checkout .Previous:hover {
+  color: white;
+  border-radius: 4px;
+  background-color: #5F2EEA;
+}
+
+/* SIDE RIGHT */
+
+#payment-page .right .card input:focus {
+  box-shadow: 0px 4px 10px 3px rgba(0, 2, 134, 0.11);
+  border-color: #5F2EEA;
+}
+
+#payment-page label {
+  font-size: 13px;
+  color: #4E4B66;
+}

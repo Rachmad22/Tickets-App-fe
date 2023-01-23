@@ -1,0 +1,168 @@
+#home {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#home {
+  background-color: white;
+}
+
+/* HOME PAGE */
+#home .home-page {
+  margin-bottom: 80px;
+}
+
+#home .home-page .slogan {
+  margin-top: 200px;
+}
+
+#home .home-page .slogan p {
+  font-size: 25px;
+  margin-bottom: 7px;
+  color: #A0A3BD;
+}
+
+#home .home-page .slogan h1 {
+  font-size: 58px;
+  font-weight: bold;
+  color: #5F2EEA;
+}
+
+/* NOW SHOWING */
+#home .card-body div {
+  display: none
+}
+
+#home .card-body div:hover {
+  display: block
+}
+
+#home .now-showing {
+  background-color: #f1f1f1;
+  padding-top: 45px;
+  padding-bottom: 50px;
+}
+
+#home .now-showing .sub-title p {
+  font-size: 25px;
+  color: #5F2EEA;
+  border-bottom: 3px solid #5F2EEA;
+}
+
+#home .now-showing .view-all .link {
+  text-decoration: none;
+  color: #5F2EEA;
+  font-weight: bold;
+  margin-top: 100px;
+}
+
+#home .now-showing .card-movies .card {
+  border-color: white;
+}
+
+#home .now-showing .card-movies .title-movie {
+  font-size: 19px;
+  font-weight: bold;
+  line-height: 25px;
+}
+
+#home .now-showing .card-movies .genre {
+  font-size: 13px;
+  font-weight: bold;
+  color: #A0A3BD;
+}
+
+#home .now-showing .card-movies .btn {
+  font-size: 12px;
+  border-color: #5F2EEA;
+  color: #5F2EEA;
+}
+
+#home .now-showing .card-movies .btn:hover {
+  background-color: #5F2EEA;
+  border-color: #5F2EEA;
+  color: white;
+}
+
+/* UPCOMING MOVIES */
+#home .upcoming-movies {
+  background-color: white;
+  padding-top: 45px;
+  padding-bottom: 50px;
+}
+
+#home .upcoming-movies .sub-title p {
+  font-size: 25px;
+  color: #5F2EEA;
+}
+
+#home .upcoming-movies .view-all .link {
+  text-decoration: none;
+  color: #5F2EEA;
+  font-weight: bold;
+  margin-top: 100px;
+}
+
+#home .upcoming-movies .btn-month .month {
+  font-size: 12px;
+  border-color: #5F2EEA;
+  color: #5F2EEA;
+}
+
+#home .upcoming-movies .btn-month .now {
+  font-size: 12px;
+  border-color: #5F2EEA;
+  background-color: #5F2EEA;
+  color: white;
+}
+
+#home .upcoming-movies .btn-month .month:hover {
+  background-color: #5F2EEA;
+  border-color: #5F2EEA;
+  color: white;
+}
+
+#home .upcoming-movies .UpMovieCard .card {
+  border-color: white;
+}
+
+#home .upcoming-movies .UpMovieCard .title-movie {
+  font-size: 19px;
+  font-weight: bold;
+  line-height: 25px;
+}
+
+#home .upcoming-movies .UpMovieCard .genre {
+  font-size: 13px;
+  font-weight: bold;
+  color: #A0A3BD;
+}
+
+#home .upcoming-movies .UpMovieCard .btn {
+  font-size: 12px;
+  border-color: #5F2EEA;
+  color: #5F2EEA;
+}
+
+#home .upcoming-movies .UpMovieCard .btn:hover {
+  background-color: #5F2EEA;
+  border-color: #5F2EEA;
+  color: white;
+}
+
+/* JOIN MEMBER */
+#home .join-member .form-email {
+  border-color: #DEDEDE;
+  font-size: 13px;
+  padding: 12px 20px;
+}
+
+#home .join-member .form-email:focus {
+  box-shadow: 0px 4px 10px 3px rgba(0, 0, 0, 0.11);
+  border-color: #5F2EEA;
+}
+
+#home .join-member .btn {
+  background-color: #5F2EEA;
+  font-size: 13px;
+  padding: 12px 20px;
+}

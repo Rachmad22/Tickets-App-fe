@@ -1,0 +1,52 @@
+/* BUTTON LOGOUT */
+#profile .card-profile .btn-logout {
+  border-radius: 15px;
+  border: 0;
+  font-size: 14px;
+  padding: 10px 50px;
+  background-color: #5F2EEA;
+}
+
+#profile .card-profile .btn-logout:hover {
+  border: 1px solid #5F2EEA;
+  color: #5F2EEA;
+  background-color: white;
+}
+
+/* NAVBAR PROFILE */
+#profile .card-profile .right .navbar-profile .order {
+  color: #14142B;
+}
+
+/* HISTORY ORDER */
+#profile .right .history-order .date-order {
+  color: #AAAAAA;
+  font-size: 14px;
+}
+
+#profile .right .history-order .btn-ticket-active {
+  border-radius: 8px;
+  border: 1px solid #5F2EEA;
+  font-size: 14px;
+  padding: 8px 35px;
+  background-color: #5F2EEA;
+}
+
+#profile .right .history-order .btn-ticket-active:hover {
+  border: 1px solid #5F2EEA;
+  color: #5F2EEA;
+  background-color: white;
+}
+
+#profile .right .history-order-nonactive .date-order {
+  color: #AAAAAA;
+  font-size: 14px;
+}
+
+#profile .right .history-order-nonactive .btn-ticket-active {
+  border-radius: 8px;
+  border: 1px solid #6E7191;
+  font-size: 14px;
+  padding: 8px 35px;
+  background-color: #6E7191;
+}
