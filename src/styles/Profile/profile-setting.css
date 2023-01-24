@@ -1,0 +1,72 @@
+/* BUTTON LOGOUT */
+#profile-setting .card-profile .btn-logout {
+  border-radius: 15px;
+  border: 1px solid #5F2EEA;
+  font-size: 14px;
+  padding: 10px 50px;
+  background-color: #5F2EEA;
+}
+
+#profile-setting .card-profile .btn-logout:hover {
+  border: 1px solid #5F2EEA;
+  color: #5F2EEA;
+  background-color: white;
+}
+
+/* NAVBAR PROFILE */
+#profile-setting .right .navbar-profile .order {
+  color: #AAAAAA;
+}
+
+#profile-setting .right .navbar-profile .setting {
+  color: black;
+}
+
+/* SETTING PROFILE */
+#profile-setting .right .setting-profile .setting .username, .email, .phone, .password {
+  font-size: 11px;
+  padding: 12px 12px 12px 20px;
+  border-color: #DEDEDE;
+  border-radius: 15px;
+}
+
+#profile-setting .right .setting-profile .setting .username:focus {
+  box-shadow: 0px 4px 10px 3px rgba(0, 2, 134, 0.11);
+  border-color: #5F2EEA;
+}
+
+#profile-setting .right .setting-profile .setting .email:focus {
+  box-shadow: 0px 4px 10px 3px rgba(0, 0, 0, 0.11);
+  border-color: #5F2EEA;
+}
+
+#profile-setting .right .setting-profile .setting .phone:focus {
+  box-shadow: 0px 4px 10px 3px rgba(0, 0, 0, 0.11);
+  border-color: #5F2EEA;
+}
+
+#profile-setting .right .setting-profile .setting .password:focus {
+  box-shadow: 0px 4px 10px 3px rgba(0, 0, 0, 0.11);
+  border-color: #5F2EEA;
+}
+
+#profile-setting .right .setting-profile .setting label {
+  font-size: 14px;
+  color: #4E4B66;
+  margin-top: 14px;
+}
+
+/* BUTTON UPDATE */
+#profile-setting .btn-update button {
+  border-radius: 15px;
+  border:1px solid #5F2EEA;
+  font-size: 14px;
+  padding: 10px 100px;
+  background-color: #5F2EEA;
+}
+
+#profile-setting .btn-update button:hover {
+  border: 1px solid #5F2EEA;
+  color: #5F2EEA;
+  background-color: white;
+}
