@@ -152,7 +152,7 @@ export default function PaymentPage() {
               {/* BUTTON */}
               <div className="row button-checkout mt-5">
                 <div className="col-4">
-                  <Link to="/View-all">
+                  <Link to="/Order-page">
                     <button
                       type="button"
                       className="btn btn-primary pt-2 pb-2 Previous"
@@ -163,7 +163,7 @@ export default function PaymentPage() {
                   </Link>
                 </div>
                 <div className="col-4 offset-4">
-                  <Link to="/Payment-page">
+                  <Link to="/Ticket-ready">
                     <button
                       type="button"
                       className="btn btn-primary pt-2 pb-2 Pay"
