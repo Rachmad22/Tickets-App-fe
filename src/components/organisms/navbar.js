@@ -54,14 +54,25 @@ export default function Navbar() {
               </li>
             </ul>
             {isSignIn ? (
-              <Link to="/Profile-history">
-                <img
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScdGAFZS8P9rXmHkXMDp_vgYHzKMsrO5xSww&usqp=CAU"
-                  style={{ width: "50px" }}
-                  className="rounded-circle"
-                  alt="photo-profile"
-                />
-              </Link>
+              <>
+                <div style={{ widht: "10px", marginRight:"30px" }}>
+                  <input
+                    type="search"
+                    className="form-control d-inline"
+                    id="exampleFormControlInput1"
+                    placeholder="Search Movie ..."
+                  />
+                </div>
+
+                <Link to="/Profile-setting">
+                  <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScdGAFZS8P9rXmHkXMDp_vgYHzKMsrO5xSww&usqp=CAU"
+                    style={{ width: "50px" }}
+                    className="rounded-circle"
+                    alt="photo-profile"
+                  />
+                </Link>
+              </>
             ) : (
               <form className="d-flex" role="Sign Up">
                 <Link to="/Sign-up" className="btn btn-primary" type="submit">
