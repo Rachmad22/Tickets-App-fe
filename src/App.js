@@ -7,6 +7,8 @@ import MovieDetails from "./pages/movie-details page/movie-details";
 import OrderPage from "./pages/order-page/order-page";
 import PaymentPage from "./pages/payment-page/payment-page";
 import Profile from "./pages/Profile/profile";
+import TicketReady from "./pages/ticket-result/ticket-result-ready";
+import TicketResultUsed from "./pages/ticket-result/ticket-result-used";
 
 function App() {
   const router = createBrowserRouter([
@@ -41,6 +43,14 @@ function App() {
     {
       path: "Profile",
       element: <Profile />,
+    },
+    {
+      path: "Ticket-ready",
+      element: <TicketReady />,
+    },
+    {
+      path: "Ticket-used",
+      element: <TicketResultUsed />,
     },
     {
       path: "#",

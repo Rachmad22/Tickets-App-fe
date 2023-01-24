@@ -19,8 +19,8 @@ export default function home() {
       {/* END OF NAVBAR */}
 
       {/* HOME PAGE */}
-      <div className="container" style={{ marginTop: "80px" }}>
-        <section className="container home-page">
+      <section className="container" style={{ marginTop: "80px" }}>
+        <div className="container home-page">
           <div className="row">
             <div className="col-6">
               <div className="slogan">
@@ -38,8 +38,8 @@ export default function home() {
               </div>
             </div>
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
       {/* END OF HOME PAGE */}
 
       {/* NOW SHOWING */}
