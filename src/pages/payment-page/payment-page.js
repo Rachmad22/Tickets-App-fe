@@ -139,7 +139,7 @@ export default function PaymentPage() {
                     or
                   </p>
                   <p style={{ color: "#6E7191" }}>
-                    Pay via cash.{" "}
+                    Pay via cash.
                     <Link
                       className="text-decoration-none"
                       style={{ color: "#5F2EEA" }}
@@ -196,7 +196,7 @@ export default function PaymentPage() {
                     placeholder=""
                   />
                 </div>
-                <div className="email mb-4">
+                <div className="email mb-4 p-0">
                   <label for="exampleFormControlInput1" class="form-label">
                     Email
                   </label>
@@ -207,7 +207,7 @@ export default function PaymentPage() {
                     placeholder=""
                   />
                 </div>
-                <div className="phone">
+                <div className="phone p-0">
                   <label for="exampleFormControlInput1" class="form-label">
                     Phone Number
                   </label>

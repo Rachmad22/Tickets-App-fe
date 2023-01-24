@@ -6,7 +6,8 @@ import ViewAll from "./pages/view-all page/view-all";
 import MovieDetails from "./pages/movie-details page/movie-details";
 import OrderPage from "./pages/order-page/order-page";
 import PaymentPage from "./pages/payment-page/payment-page";
-import Profile from "./pages/Profile/profile";
+import ProfileHistory from "./pages/Profile/profile-history";
+import ProfileSetting from "./pages/Profile/profile-setting";
 import TicketReady from "./pages/ticket-result/ticket-result-ready";
 import TicketResultUsed from "./pages/ticket-result/ticket-result-used";
 
@@ -41,8 +42,12 @@ function App() {
       element: <PaymentPage />,
     },
     {
-      path: "Profile",
-      element: <Profile />,
+      path: "Profile-setting",
+      element: <ProfileSetting />,
+    },
+    {
+      path: "Profile-history",
+      element: <ProfileHistory />,
     },
     {
       path: "Ticket-ready",

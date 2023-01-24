@@ -1,13 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../../styles/Profile/profile.css";
+import "../../styles/Profile/profile-history.css";
 import Navbar from "../../components/organisms/navbar";
 import Footer from "../../components/organisms/footer";
 
 export default function profile() {
   return (
     <div
-      id="profile"
+      id="profile-history"
       className=" container-fluid clearfix"
       style={{ paddingLeft: "0", paddingRight: "0" }}
     >
@@ -53,15 +53,19 @@ export default function profile() {
             <div className="col-9 right">
               {/* NAVBAR PROFILE */}
               <div
-                className="card-profile p-4 pb-2 shadow-sm rounded mb-4"
+                className="p-4 pb-2 shadow-sm rounded mb-4"
                 style={{
                   backgroundColor: "white",
                   border: "0",
                 }}
               >
-                <ul navbar-profile>
-                  <li className="d-inline-block me-5 order">Order History</li>
-                  <li className="d-inline-block"></li>
+                <ul className="navbar-profile">
+                  <Link to="/Profile-setting">
+                    <li className="d-inline-block me-5 setting">
+                      Account Settings
+                    </li>
+                  </Link>
+                  <li className="d-inline-block order">Order History</li>
                 </ul>
               </div>
               {/* HISTORY ORDER */}

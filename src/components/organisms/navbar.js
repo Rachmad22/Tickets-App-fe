@@ -2,7 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../../styles/navbar/navbar.css";
 
-export default function navbar() {
+export default function Navbar() {
+  const [isSignIn, setIsSignIn] = React.useState(
+    localStorage.getItem("isSignIn")
+  );
+
   return (
     <div id="navbar">
       <div
@@ -49,11 +53,22 @@ export default function navbar() {
                 </Link>
               </li>
             </ul>
-            <form className="d-flex" role="Sign Up">
-              <Link to="/Sign-up" className="btn btn-primary" type="submit">
-                Sign Up
+            {isSignIn ? (
+              <Link to="/Profile-history">
+                <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScdGAFZS8P9rXmHkXMDp_vgYHzKMsrO5xSww&usqp=CAU"
+                  style={{ width: "50px" }}
+                  className="rounded-circle"
+                  alt="photo-profile"
+                />
               </Link>
-            </form>
+            ) : (
+              <form className="d-flex" role="Sign Up">
+                <Link to="/Sign-up" className="btn btn-primary" type="submit">
+                  Sign Up
+                </Link>
+              </form>
+            )}
           </div>
         </nav>
       </div>
