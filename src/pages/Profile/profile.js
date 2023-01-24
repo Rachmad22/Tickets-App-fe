@@ -89,12 +89,14 @@ export default function profile() {
                 </div>
                 <div className="row d-flex mt-4">
                   <div className="col-8">
-                    <button
-                      type="button"
-                      class="btn btn-primary btn-ticket-active"
-                    >
-                      Ticket in active
-                    </button>
+                    <Link to="/Ticket-ready">
+                      <button
+                        type="button"
+                        class="btn btn-primary btn-ticket-active"
+                      >
+                        Ticket in active
+                      </button>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -121,13 +123,14 @@ export default function profile() {
                 </div>
                 <div className="row d-flex mt-4">
                   <div className="col-8">
-                    <button
-                      type="button"
-                      class="btn btn-primary btn-ticket-active"
-                      disabled
-                    >
-                      Ticket used
-                    </button>
+                    <Link to="/Ticket-used">
+                      <button
+                        type="button"
+                        class="btn btn-primary btn-ticket-active"
+                      >
+                        Ticket used
+                      </button>
+                    </Link>
                   </div>
                 </div>
               </div>

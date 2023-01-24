@@ -105,12 +105,14 @@ export default function ticketResultReady() {
                         </div>
                       </div>
                       <div className="col-4 d-flex align-items-center justify-content-center">
-                        <img
-                          src={require("../../asset/QR Code 1.png")}
-                          alt="QR"
-                          style={{ width: "85%" }}
-                          className=""
-                        ></img>
+                        <Link to="/Ticket-used">
+                          <img
+                            src={require("../../asset/QR Code 1.png")}
+                            alt="QR"
+                            style={{ width: "85%" }}
+                            className=""
+                          ></img>
+                        </Link>
                       </div>
                     </div>
                   </div>
