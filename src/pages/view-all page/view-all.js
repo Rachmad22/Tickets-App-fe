@@ -4,6 +4,7 @@ import "../../styles/View-all page/view-all.css";
 import MonthBtn from "../../components/organisms/month-btn";
 import AllMoviesCard from "../../components/molecules/allMoviesCard";
 import Footer from "../../components/organisms/footer";
+import { useNavigate } from "react-router-dom";
 // import dropdown in bootstrap
 import "bootstrap";
 import "bootstrap/dist/css/bootstrap.css";
@@ -11,7 +12,19 @@ import "bootstrap/js/dist/dropdown";
 import $ from "jquery";
 import Popper from "popper.js";
 
-export default function viewAll() {
+export default function ViewAll() {
+  const navigate = useNavigate();
+
+  // CHECK IS ALREADY LOGIN
+  React.useEffect(() => {
+    const isLogin = localStorage.getItem("isSignIn");
+    const token = localStorage.getItem("token");
+
+    if (!isLogin && !token) {
+      navigate("/Sign-in");
+    }
+  }, []);
+
   return (
     <div
       id="view-all"

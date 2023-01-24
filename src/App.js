@@ -10,6 +10,7 @@ import ProfileHistory from "./pages/Profile/profile-history";
 import ProfileSetting from "./pages/Profile/profile-setting";
 import TicketReady from "./pages/ticket-result/ticket-result-ready";
 import TicketResultUsed from "./pages/ticket-result/ticket-result-used";
+import Logout from "./pages/account/logout";
 
 function App() {
   const router = createBrowserRouter([
@@ -56,6 +57,10 @@ function App() {
     {
       path: "Ticket-used",
       element: <TicketResultUsed />,
+    },
+    {
+      path: "Logout",
+      element: <Logout />,
     },
     {
       path: "#",

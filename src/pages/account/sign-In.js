@@ -108,6 +108,10 @@ export default function Signup() {
                             "token",
                             res?.data?.data?.token ?? ""
                           );
+                          localStorage.setItem(
+                            "profile",
+                            JSON.stringify(res?.data?.data?.profile) ?? ""
+                          );
                           navigate("/"); //navigate home
                         })
                         .catch((err) => {

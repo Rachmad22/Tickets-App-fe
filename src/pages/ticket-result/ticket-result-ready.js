@@ -3,8 +3,21 @@ import { Link } from "react-router-dom";
 import "../../styles/ticket-result/ticket-result-ready.css";
 import Navbar from "../../components/organisms/navbar";
 import Footer from "../../components/organisms/footer";
+import { useNavigate } from "react-router-dom";
 
-export default function ticketResultReady() {
+export default function TicketResultReady() {
+  const navigate = useNavigate();
+
+  // CHECK IS ALREADY LOGIN
+  React.useEffect(() => {
+    const isLogin = localStorage.getItem("isSignIn");
+    const token = localStorage.getItem("token");
+
+    if (!isLogin && !token) {
+      navigate("/Sign-in");
+    }
+  }, []);
+
   return (
     <div
       id="ticketReady"
