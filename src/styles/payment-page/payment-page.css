@@ -9,6 +9,10 @@
   padding: 10px;
 }
 
+#payment-page .payment .side-left .payment-method button:focus {
+  border: 5px solid #5F2EEA;
+}
+
 #payment-page .payment .side-left .payment-method button img {
   width: 50%;
 }
