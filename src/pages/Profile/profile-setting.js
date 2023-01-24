@@ -3,8 +3,25 @@ import { Link } from "react-router-dom";
 import "../../styles/Profile/profile-setting.css";
 import Navbar from "../../components/organisms/navbar";
 import Footer from "../../components/organisms/footer";
+import { useNavigate } from "react-router-dom";
 
-export default function profile() {
+export default function Profile() {
+  const navigate = useNavigate();
+  const checkProfile = localStorage.getItem("profile")
+    ? JSON.parse(localStorage.getItem("profile"))
+    : null;
+  const [profile, setProfile] = React.useState(checkProfile);
+
+  // CHECK IS ALREADY LOGIN
+  React.useEffect(() => {
+    const isLogin = localStorage.getItem("isSignIn");
+    const token = localStorage.getItem("token");
+
+    if (!isLogin && !token) {
+      navigate("/Sign-in");
+    }
+  }, []);
+
   return (
     <div
       id="profile-setting"
@@ -32,21 +49,25 @@ export default function profile() {
                 }}
               >
                 <img
-                  src={require("../../asset/photo.png")}
+                  src={profile?.photo}
                   alt="photo-profile"
-                  style={{ width: "150px" }}
-                  className="shadow-sm rounded-circle"
+                  style={{ width: "140px" }}
+                  className="shadow-sm rounded-circle mb-2"
                 ></img>
-                <h5 className="username mt-2">Jonas El Rodriguez</h5>
+                <h5 className="username mt-2">
+                  {profile.firstname} {profile.lastname}
+                </h5>
                 <p
                   className="role border-bottom pb-4"
                   style={{ color: "#4E4B66" }}
                 >
-                  Moviegoers
+                  {profile.role}
                 </p>
-                <button type="button" class="btn btn-primary btn-logout">
-                  Logout
-                </button>
+                <Link to="/Logout">
+                  <button type="button" class="btn btn-primary btn-logout">
+                    Logout
+                  </button>
+                </Link>
               </div>
             </div>
             {/* CARD PROFILE DETAIL INFORMATION */}
@@ -91,7 +112,7 @@ export default function profile() {
                       type="text"
                       className="form-control username"
                       id="inputAddress"
-                      placeholder="Write your first name"
+                      placeholder={profile?.firstname}
                     />
                   </div>
                   <div className="col-6">
@@ -105,7 +126,7 @@ export default function profile() {
                       type="text"
                       className="form-control username"
                       id="inputAddress"
-                      placeholder="Write your last name"
+                      placeholder={profile?.lastname}
                     />
                   </div>
                 </div>
@@ -121,7 +142,7 @@ export default function profile() {
                       type="email"
                       className="form-control email"
                       id="exampleFormControlInput1"
-                      placeholder="Write your email"
+                      placeholder={profile?.email}
                     />
                   </div>
                   <div className="col-6">
@@ -135,7 +156,7 @@ export default function profile() {
                       type="number"
                       className="form-control phone"
                       id="inputAddress"
-                      placeholder="Write your phone number"
+                      placeholder={profile?.phone}
                     />
                   </div>
                 </div>

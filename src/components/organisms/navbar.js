@@ -3,9 +3,13 @@ import { Link } from "react-router-dom";
 import "../../styles/navbar/navbar.css";
 
 export default function Navbar() {
+  const checkProfile = localStorage.getItem("profile")
+    ? JSON.parse(localStorage.getItem("profile"))
+    : null;
   const [isSignIn, setIsSignIn] = React.useState(
     localStorage.getItem("isSignIn")
   );
+  const [profile, setProfile] = React.useState(checkProfile);
 
   return (
     <div id="navbar">
@@ -54,14 +58,27 @@ export default function Navbar() {
               </li>
             </ul>
             {isSignIn ? (
-              <Link to="/Profile-history">
-                <img
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScdGAFZS8P9rXmHkXMDp_vgYHzKMsrO5xSww&usqp=CAU"
-                  style={{ width: "50px" }}
-                  className="rounded-circle"
-                  alt="photo-profile"
-                />
-              </Link>
+              <>
+                <div style={{ widht: "10px", marginRight: "30px" }}>
+                  <input
+                    type="search"
+                    className="form-control d-inline"
+                    id="exampleFormControlInput1"
+                    placeholder="Search Movie Name..."
+                  />
+                </div>
+
+                <div className="">
+                  <Link to="/Profile-setting">
+                    <img
+                      src={profile?.photo}
+                      style={{ width: "50px" }}
+                      className="rounded-circle border shadow-sm"
+                      alt="photo-profile"
+                    />
+                  </Link>
+                </div>
+              </>
             ) : (
               <form className="d-flex" role="Sign Up">
                 <Link to="/Sign-up" className="btn btn-primary" type="submit">
