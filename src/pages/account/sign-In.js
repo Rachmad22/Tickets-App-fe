@@ -44,7 +44,7 @@ export default function Signup() {
               <div className="alert-error">
                 {isError ? (
                   <div
-                    class="alert alert-danger text-center"
+                    class="alert alert-danger text-center ps-0 pe-0"
                     role="alert"
                     style={{
                       fontSize: "14px",
@@ -112,13 +112,13 @@ export default function Signup() {
                             "profile",
                             JSON.stringify(res?.data?.data?.profile) ?? ""
                           );
-                          navigate("/"); //navigate home
+                          navigate("/");
                         })
                         .catch((err) => {
                           setIsError(true);
                           setErrMsg(
-                            err?.response?.data?.message ??
-                              "System error, try again later."
+                            err?.response?.data?.message?.email?.message ??
+                              "Unregistered email or wrong password"
                           );
                         })
                         .finally(() => setIsLoading(false));
