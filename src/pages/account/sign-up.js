@@ -118,6 +118,69 @@ export default function Signup() {
                   Password
                 </label>
                 <input
+                  onKeyDown={(event) => {
+                    if (event.key === "Enter") {
+                      setIsLoading(true);
+
+                      axios
+                        .post(`${process.env.REACT_APP_URL_BACKEND}/user/add`, {
+                          firstname,
+                          lastname,
+                          phone: phoneNumber,
+                          email,
+                          password,
+                        })
+                        .then((res) => {
+                          navigate("/Sign-in");
+                        })
+                        .catch((err) => {
+                          setIsError(true);
+                          if (
+                            err?.response?.data?.message?.firstname?.message
+                          ) {
+                            setErrMsg(
+                              err?.response?.data?.message?.firstname
+                                ?.message ??
+                                "System error, please try again later."
+                            );
+                          } else if (
+                            err?.response?.data?.message?.lastname?.message
+                          ) {
+                            setErrMsg(
+                              err?.response?.data?.message?.lastname?.message ??
+                                "System error, please try again later."
+                            );
+                          } else if (
+                            err?.response?.data?.message?.phone?.message
+                          ) {
+                            setErrMsg(
+                              err?.response?.data?.message?.phone?.message ??
+                                "System error, please try again later."
+                            );
+                          } else if (
+                            err?.response?.data?.message?.email?.message
+                          ) {
+                            setErrMsg(
+                              err?.response?.data?.message?.email?.message ??
+                                "System error, please try again later."
+                            );
+                          } else if (
+                            err?.response?.data?.message?.password?.message
+                          ) {
+                            setErrMsg(
+                              err?.response?.data?.message?.password?.message ??
+                                "System error, please try again later."
+                            );
+                          } else {
+                            setErrMsg(
+                              err?.response?.data?.message ??
+                                "System error, please try again later."
+                            );
+                          }
+                        })
+                        .finally(() => setIsLoading(false));
+                    }
+                  }}
                   type="password"
                   className="form-control password"
                   id="inputAddress"
