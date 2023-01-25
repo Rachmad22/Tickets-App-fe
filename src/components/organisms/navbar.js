@@ -80,11 +80,26 @@ export default function Navbar() {
                 </div>
               </>
             ) : (
-              <form className="d-flex" role="Sign Up">
-                <Link to="/Sign-up" className="btn btn-primary" type="submit">
-                  Sign Up
-                </Link>
-              </form>
+              <>
+                <form className="d-flex" role="Sign In">
+                  <Link
+                    to="/Sign-in"
+                    className="btn btn-outline-primary me-2 Sign-In"
+                    type="submit"
+                  >
+                    Sign In
+                  </Link>
+                </form>
+                <form className="d-flex" role="Sign Up">
+                  <Link
+                    to="/Sign-up"
+                    className="btn btn-primary Sign-Up"
+                    type="submit"
+                  >
+                    Sign Up
+                  </Link>
+                </form>
+              </>
             )}
           </div>
         </nav>

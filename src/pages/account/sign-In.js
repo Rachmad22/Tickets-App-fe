@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import SideLeftAccount from "../../components/molecules/SideLeftAccount";
 import axios from "axios";
 
-export default function Signup() {
+export default function SignIn() {
   const navigate = useNavigate();
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
@@ -116,10 +116,22 @@ export default function Signup() {
                         })
                         .catch((err) => {
                           setIsError(true);
-                          setErrMsg(
-                            err?.response?.data?.message?.email?.message ??
-                              "Unregistered email or wrong password"
-                          );
+                          if (err?.response?.data?.message?.email?.message) {
+                            setErrMsg(
+                              err?.response?.data?.message?.email?.message ??
+                                "System error, please try again later."
+                            );
+                          } else if (err?.response?.data?.message?.password?.message) {
+                            setErrMsg(
+                              err?.response?.data?.message?.password?.message ??
+                                "System error, please try again later."
+                            );
+                          } else {
+                            setErrMsg(
+                              err?.response?.data?.message ??
+                                "System error, please try again later."
+                            );
+                          }
                         })
                         .finally(() => setIsLoading(false));
                     }}

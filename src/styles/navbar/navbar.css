@@ -7,10 +7,27 @@
   padding-left: 30px;
 }
 
-#navbar .navbar .btn {
+#navbar .navbar .Sign-In {
+  padding: 7px 40px;
+  font-size: 15px;
+  color: #5F2EEA;
+  border-color: #5F2EEA;
+}
+
+#navbar .navbar .Sign-In:hover {
+  color: white;
+  background-color: #5F2EEA;
+}
+
+#navbar .navbar .Sign-Up {
   padding: 7px 40px;
   font-size: 15px;
   background-color: #5F2EEA;
+}
+
+#navbar .navbar .Sign-Up:hover {
+  color: #5F2EEA;
+  background-color: transparent;
 }
 
 #navbar .navbar input {
