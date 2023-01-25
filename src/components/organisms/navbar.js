@@ -1,8 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../../styles/navbar/navbar.css";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 export default function Navbar() {
+  const navigate = useNavigate();
+  let [movie, setMovie] = React.useState([]);
+  let [isLoading, setIsLoading] = React.useState(true);
   const checkProfile = localStorage.getItem("profile")
     ? JSON.parse(localStorage.getItem("profile"))
     : null;
@@ -10,6 +15,21 @@ export default function Navbar() {
     localStorage.getItem("isSignIn")
   );
   const [profile, setProfile] = React.useState(checkProfile);
+  let [keyword, setKeyword] = React.useState("");
+
+  const fetchByKeyword = () => {
+    setMovie([])
+    axios
+      .get(
+        `${process.env.REACT_APP_URL_BACKEND}/movies/search/${keyword}`
+      )
+      .then(({ data }) => {
+        
+        setMovie(data?.data);
+      })
+      .catch(() => setMovie([]))
+      .finally(() => setIsLoading(false));
+  }
 
   return (
     <div id="navbar">
@@ -65,6 +85,15 @@ export default function Navbar() {
                     className="form-control d-inline"
                     id="exampleFormControlInput1"
                     placeholder="Search Movie Name..."
+                    onChange={(event) => {
+                      setKeyword(event.target.value);
+                    }}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter") {
+                        navigate("/View-all");
+                        fetchByKeyword();
+                      }
+                    }}
                   />
                 </div>
 

@@ -17,6 +17,7 @@ export default function ViewAll() {
   const navigate = useNavigate();
   let [movie, setMovie] = React.useState([]);
   let [isLoading, setIsLoading] = React.useState(true);
+  let [keyword, setKeyword] = React.useState("");
 
   React.useEffect(() => {
     axios
@@ -38,6 +39,17 @@ export default function ViewAll() {
       navigate("/Sign-in");
     }
   }, []);
+
+  const fetchByKeyword = () => {
+    axios
+      .get(`${process.env.REACT_APP_URL_BACKEND}/movies/search/${keyword}`)
+      .then(({ data }) => {
+        console.log(data?.data)
+        setMovie(data?.data);
+      })
+      .catch(() => setMovie([]))
+      .finally(() => setIsLoading(false));
+  };
 
   return (
     <div
@@ -90,6 +102,14 @@ export default function ViewAll() {
                 class="form-control"
                 id="exampleFormControlInput1"
                 placeholder="Search Movie Name ..."
+                onChange={(e) => {
+                  setKeyword(e.target.value)
+                }}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    fetchByKeyword();
+                  }
+                }}
               />
             </div>
           </div>
