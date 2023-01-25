@@ -4,27 +4,13 @@ import "../../styles/movie-details page/movie-details.css";
 import Navbar from "../../components/organisms/navbar";
 import Footer from "../../components/organisms/footer";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 import CardCinema from "../../components/molecules/cardCinema";
-// import moment from "moment";
-// const dateTime = new Date();
-
-// const cinema = [
-//   {
-//     name: "ebv.id",
-//     image: require("../../asset/hiflix.png"),
-//   },
-//   {
-//     name: "CineOne21",
-//     image: require("../../asset/hiflix.png"),
-//   },
-//   {
-//     name: "hiflix Cinema",
-//     image: require("../../asset/hiflix.png"),
-//   },
-// ];
 
 export default function MovieDetails() {
   const navigate = useNavigate();
+  const { movie } = useSelector((state) => state);
+
 
   // CHECK IS ALREADY LOGIN
   React.useEffect(() => {
@@ -57,50 +43,36 @@ export default function MovieDetails() {
               className="card p-5 text-center"
               style={{ width: "335px", borderRadius: "20px" }}
             >
-              <img
-                src={require("../../asset/Rectangle 119.png")}
-                className="card-img-top"
-                alt="..."
-              />
+              <img src={movie?.data?.photo} className="card-img-top" alt="..." />
             </div>
           </div>
           <div className="col-8 detail">
-            <h2 className="title-movie">Spider-Man: Homecoming</h2>
-            <p className="genre-movies mb-4">Adventure, Action, Sci-Fi</p>
+            <h2 className="title-movie">{movie?.data?.name}</h2>
+            <p className="genre-movies mb-4">{movie?.data?.genre}</p>
             <div className="table-details">
               <div className="row">
                 <div className="col-3">
                   <p className="sub-title">Release date</p>
-                  <p className="content">June 28, 2017</p>
+                  <p className="content">{movie?.data?.release_date}</p>
                 </div>
                 <div className="col-8 offset-1">
                   <p className="sub-title">Directed by</p>
-                  <p className="content">Jon Watss</p>
+                  <p className="content">{movie?.data?.directed_by}</p>
                 </div>
               </div>
               <div className="row">
                 <div className="col-3">
                   <p className="sub-title">Duration</p>
-                  <p className="content">2 hours 13 minutes</p>
+                  <p className="content">{movie?.data?.duration}</p>
                 </div>
                 <div className="col-8 offset-1">
                   <p className="sub-title">Casts</p>
-                  <p className="content">
-                    Tom Holland, Michael Keaton, Robert Downey Jr., ...
-                  </p>
+                  <p className="content">{movie?.data?.casts}</p>
                 </div>
               </div>
               <div className="row synopsis">
                 <h5 className="sub-title-synopsis">Synopsis</h5>
-                <p>
-                  Thrilled by his experience with the Avengers, Peter returns
-                  home, where he lives with his Aunt May, under the watchful eye
-                  of his new mentor Tony Stark, Peter tries to fall back into
-                  his normal daily routine - distracted by thoughts of proving
-                  himself to be more than just your friendly neighborhood
-                  Spider-Man - but when the Vulture emerges as a new villain,
-                  everything that Peter holds most important will be threatened.{" "}
-                </p>
+                <p>{movie?.data?.synopsis}</p>
               </div>
             </div>
           </div>
