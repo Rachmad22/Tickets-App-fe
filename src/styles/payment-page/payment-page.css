@@ -10,7 +10,7 @@
 }
 
 #payment-page .payment .side-left .payment-method button:focus {
-  border: 5px solid #5F2EEA;
+  background-color: #aeaeae;
 }
 
 #payment-page .payment .side-left .payment-method button img {
