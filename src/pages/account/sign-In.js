@@ -79,6 +79,55 @@ export default function SignIn() {
                   Password
                 </label>
                 <input
+                  onKeyDown={(event) => {
+                    if (event.key === "Enter") {
+                      setIsLoading(true);
+                      axios
+                        .post(
+                          `${process.env.REACT_APP_URL_BACKEND}/auth/login`,
+                          {
+                            email,
+                            password,
+                          }
+                        )
+                        .then((res) => {
+                          localStorage.setItem("isSignIn", "true");
+                          localStorage.setItem(
+                            "token",
+                            res?.data?.data?.token ?? ""
+                          );
+                          localStorage.setItem(
+                            "profile",
+                            JSON.stringify(res?.data?.data?.profile) ?? ""
+                          );
+                          navigate("/");
+                        })
+                        .catch((err) => {
+                          setIsError(true);
+                          console.log(setErrMsg(err));
+                          if (err?.response?.data?.message?.email?.message) {
+                            setErrMsg(
+                              err?.response?.data?.message?.email?.message ??
+                                "System error, please try again later."
+                            );
+                          } else if (
+                            err?.response?.data?.message?.password?.message
+                          ) {
+                            setErrMsg(
+                              err?.response?.data?.message?.password?.message ??
+                                "System error, please try again later."
+                            );
+                          } else {
+                            setErrMsg(
+                              err?.response?.data?.message ??
+                                "System error, please try again later."
+                            );
+                          }
+                        })
+                        .finally(() => setIsLoading(false));
+                      console.log("sbbs")
+                    }
+                  }}
                   type="password"
                   className="form-control password"
                   id="inputAddress"
@@ -116,12 +165,15 @@ export default function SignIn() {
                         })
                         .catch((err) => {
                           setIsError(true);
+                          console.log(setErrMsg(err));
                           if (err?.response?.data?.message?.email?.message) {
                             setErrMsg(
                               err?.response?.data?.message?.email?.message ??
                                 "System error, please try again later."
                             );
-                          } else if (err?.response?.data?.message?.password?.message) {
+                          } else if (
+                            err?.response?.data?.message?.password?.message
+                          ) {
                             setErrMsg(
                               err?.response?.data?.message?.password?.message ??
                                 "System error, please try again later."

@@ -7,6 +7,12 @@ import { useNavigate } from "react-router-dom";
 
 export default function PaymentPage() {
   const navigate = useNavigate();
+  const [paymentSelected, setPaymentSelected] = React.useState(null);
+  const checkProfile = localStorage.getItem("profile")
+    ? JSON.parse(localStorage.getItem("profile"))
+    : null;
+  const [profile, setProfile] = React.useState(checkProfile);
+  console.log(paymentSelected);
 
   // CHECK IS ALREADY LOGIN
   React.useEffect(() => {
@@ -63,14 +69,14 @@ export default function PaymentPage() {
                     <p>CineOne21 Cinema</p>
                   </div>
                 </div>
-                <div className="row border-bottom number-ticket mb-3">
+                {/* <div className="row border-bottom number-ticket mb-3">
                   <div className="col-3">
                     <p style={{ color: "#6B6B6B" }}>Number of tickets</p>
                   </div>
                   <div className="col-9 text-end">
                     <p>3 pieces</p>
                   </div>
-                </div>
+                </div> */}
                 <div className="row border-bottom total-payment mb-3">
                   <div className="col-3">
                     <p style={{ color: "#6B6B6B" }}>Total payment</p>
@@ -85,7 +91,15 @@ export default function PaymentPage() {
               <div className="side-left p-5" style={{ width: "100%" }}>
                 <div className="row mb-4 payment-method">
                   <div className="col-3">
-                    <button type="button" class="btn btn-outline-secondary">
+                    <button
+                      type="button"
+                      className={`btn btn-outline-secondary ${
+                        paymentSelected === "Gpay" ? "payment-selected" : ""
+                      }`}
+                      onClick={() => {
+                        setPaymentSelected("Gpay");
+                      }}
+                    >
                       <img
                         src={require("../../asset/Gpay.png")}
                         alt="Gpay"
@@ -93,7 +107,15 @@ export default function PaymentPage() {
                     </button>
                   </div>
                   <div className="col-3">
-                    <button type="button" class="btn btn-outline-secondary">
+                    <button
+                      type="button"
+                      className={`btn btn-outline-secondary ${
+                        paymentSelected === "visa" ? "payment-selected" : ""
+                      }`}
+                      onClick={() => {
+                        setPaymentSelected("visa");
+                      }}
+                    >
                       <img
                         src={require("../../asset/visa.png")}
                         alt="visa"
@@ -101,7 +123,15 @@ export default function PaymentPage() {
                     </button>
                   </div>
                   <div className="col-3">
-                    <button type="button" class="btn btn-outline-secondary">
+                    <button
+                      type="button"
+                      className={`btn btn-outline-secondary ${
+                        paymentSelected === "gopay" ? "payment-selected" : ""
+                      }`}
+                      onClick={() => {
+                        setPaymentSelected("gopay");
+                      }}
+                    >
                       <img
                         src={require("../../asset/GoPay.png")}
                         alt="gopay"
@@ -109,7 +139,15 @@ export default function PaymentPage() {
                     </button>
                   </div>
                   <div className="col-3">
-                    <button type="button" class="btn btn-outline-secondary">
+                    <button
+                      type="button"
+                      className={`btn btn-outline-secondary ${
+                        paymentSelected === "paypal" ? "payment-selected" : ""
+                      }`}
+                      onClick={() => {
+                        setPaymentSelected("paypal");
+                      }}
+                    >
                       <img
                         src={require("../../asset/paypal.png")}
                         alt="paypal"
@@ -120,7 +158,15 @@ export default function PaymentPage() {
                 </div>
                 <div className="row payment-method">
                   <div className="col-3">
-                    <button type="button" class="btn btn-outline-secondary">
+                    <button
+                      type="button"
+                      className={`btn btn-outline-secondary ${
+                        paymentSelected === "DANA" ? "payment-selected" : ""
+                      }`}
+                      onClick={() => {
+                        setPaymentSelected("DANA");
+                      }}
+                    >
                       <img
                         src={require("../../asset/DANA.png")}
                         alt="DANA"
@@ -128,12 +174,28 @@ export default function PaymentPage() {
                     </button>
                   </div>
                   <div className="col-3">
-                    <button type="button" class="btn btn-outline-secondary">
+                    <button
+                      type="button"
+                      className={`btn btn-outline-secondary ${
+                        paymentSelected === "BCA" ? "payment-selected" : ""
+                      }`}
+                      onClick={() => {
+                        setPaymentSelected("BCA");
+                      }}
+                    >
                       <img src={require("../../asset/BCA.png")} alt="BCA"></img>
                     </button>
                   </div>
                   <div className="col-3">
-                    <button type="button" class="btn btn-outline-secondary">
+                    <button
+                      type="button"
+                      className={`btn btn-outline-secondary ${
+                        paymentSelected === "BRI" ? "payment-selected" : ""
+                      }`}
+                      onClick={() => {
+                        setPaymentSelected("BRI");
+                      }}
+                    >
                       <img
                         src={require("../../asset/BRI.png")}
                         alt="BRI"
@@ -142,7 +204,15 @@ export default function PaymentPage() {
                     </button>
                   </div>
                   <div className="col-3">
-                    <button type="button" class="btn btn-outline-secondary">
+                    <button
+                      type="button"
+                      className={`btn btn-outline-secondary ${
+                        paymentSelected === "OVO" ? "payment-selected" : ""
+                      }`}
+                      onClick={() => {
+                        setPaymentSelected("OVO");
+                      }}
+                    >
                       <img src={require("../../asset/OVO.png")} alt="OVO"></img>
                     </button>
                   </div>
@@ -206,7 +276,7 @@ export default function PaymentPage() {
                     type="text"
                     class="form-control"
                     id="exampleFormControlInput1"
-                    placeholder=""
+                    placeholder={`${profile.firstname} ${profile.lastname}`}
                   />
                 </div>
                 <div className="email mb-4 p-0">
@@ -217,7 +287,7 @@ export default function PaymentPage() {
                     type="email"
                     class="form-control"
                     id="exampleFormControlInput1"
-                    placeholder=""
+                    placeholder={profile.email}
                   />
                 </div>
                 <div className="phone p-0">
@@ -228,7 +298,7 @@ export default function PaymentPage() {
                     type="number"
                     class="form-control"
                     id="exampleFormControlInput1"
-                    placeholder=""
+                    placeholder={profile.phone}
                   />
                 </div>
               </div>

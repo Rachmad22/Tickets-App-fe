@@ -5,6 +5,7 @@ import MonthBtn from "../../components/organisms/month-btn";
 import AllMoviesCard from "../../components/molecules/allMoviesCard";
 import Footer from "../../components/organisms/footer";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 // import dropdown in bootstrap
 import "bootstrap";
 import "bootstrap/dist/css/bootstrap.css";
@@ -14,6 +15,19 @@ import Popper from "popper.js";
 
 export default function ViewAll() {
   const navigate = useNavigate();
+  let [movie, setMovie] = React.useState([]);
+  let [isLoading, setIsLoading] = React.useState(true);
+
+  React.useEffect(() => {
+    axios
+      .get(`${process.env.REACT_APP_URL_BACKEND}/movies`)
+      .then((data) => {
+        console.log(data?.data?.data);
+        setMovie(data?.data?.data);
+      })
+      .catch(() => setMovie([]))
+      .finally(() => setIsLoading(false));
+  }, []);
 
   // CHECK IS ALREADY LOGIN
   React.useEffect(() => {
@@ -92,32 +106,18 @@ export default function ViewAll() {
       {/* MOVIES */}
       <section className="container movies text-center">
         <div className="row card-movies mb-5">
-          <div className="col-3">
-            <AllMoviesCard />
-          </div>
-          <div className="col-3">
-            <AllMoviesCard />
-          </div>
-          <div className="col-3">
-            <AllMoviesCard />
-          </div>
-          <div className="col-3">
-            <AllMoviesCard />
-          </div>
-        </div>
-        <div className="row card-movies">
-          <div className="col-3">
-            <AllMoviesCard />
-          </div>
-          <div className="col-3">
-            <AllMoviesCard />
-          </div>
-          <div className="col-3">
-            <AllMoviesCard />
-          </div>
-          <div className="col-3">
-            <AllMoviesCard />
-          </div>
+          {movie.map((item, key) => {
+            return (
+              <div className="col-3" key={key}>
+                <AllMoviesCard
+                  image={item?.photo}
+                  name={item?.name}
+                  genre={item?.genre}
+                  url={item?.slug}
+                />
+              </div>
+            );
+          })}
         </div>
       </section>
       {/* END OF MOVIES */}

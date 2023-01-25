@@ -31,7 +31,7 @@ function App() {
       element: <ViewAll />,
     },
     {
-      path: "Detail-movies",
+      path: "Detail-movies/:id",
       element: <MovieDetails />,
     },
     {

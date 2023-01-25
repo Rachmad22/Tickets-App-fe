@@ -1,23 +1,25 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default function allMoviesCard() {
+export default function allMoviesCard(props) {
+  const { image, name, genre, url } = props;
   return (
     <div>
       <div
-        class="card p-3 text-center"
-        style={{ width: "180px", marginLeft: "15px" }}
+        class="card p-2 text-center"
+        style={{ width: "180px", marginLeft: "15px", height: "390px" }}
       >
         <img
-          src={require("../../asset/Rectangle 139.png")}
+          src={image}
           class="card-img-top"
-          alt="..."
+          alt="movie photo"
+          style={{ height: "200px", objectFit: "cover" }}
         />
         <div class="card-body">
-          <h5 class="card-title title-movie">Black Widow</h5>
-          <p class="card-text genre">Action, Adventure, Sci-FI</p>
+          <h5 class="card-title title-movie">{name}</h5>
+          <p class="card-text genre">{genre}</p>
           <Link
-            to="/Detail-movies"
+            to={`/Detail-movies/${url}`}
             className="btn btn-outline-primary d-grid gap-2"
           >
             Details
