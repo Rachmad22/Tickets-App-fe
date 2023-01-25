@@ -1,7 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import axios from "axios";
+import { useDispatch } from "react-redux";
+import * as movieReducer from "../../store/movies/index";
+import { useNavigate } from "react-router-dom";
 
-export default function novMovieCard(props) {
+export default function NovMovieCard(props) {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const { image, name, genre, url } = props;
   return (
     <div>
@@ -27,12 +32,27 @@ export default function novMovieCard(props) {
             {name}
           </h5>
           <p class="card-text genre">{genre}</p>
-          <Link
-            to={`/Detail-movies/${url}`}
-            class="btn btn-outline-primary d-grid gap-2"
+          <button
+            className="btn btn-outline-primary d-grid gap-2"
+            style={{ width: "100%" }}
+            onClick={() => {
+              axios
+                .get(
+                  `${process.env.REACT_APP_URL_BACKEND}/movies/search/${name}`
+                )
+                .then(({ data }) => {
+                  dispatch(
+                    movieReducer.setDetail({
+                      data: data?.data?.[0],
+                      slug: url,
+                    })
+                  );
+                  navigate(`/Detail-movies/${url}`);
+                });
+            }}
           >
             Details
-          </Link>
+          </button>
         </div>
       </div>
     </div>

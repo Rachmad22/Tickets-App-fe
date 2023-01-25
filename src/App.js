@@ -12,6 +12,10 @@ import TicketReady from "./pages/ticket-result/ticket-result-ready";
 import TicketResultUsed from "./pages/ticket-result/ticket-result-used";
 import Logout from "./pages/account/logout";
 
+// Import redux
+import store from "./store/index";
+import { Provider } from "react-redux";
+
 function App() {
   const router = createBrowserRouter([
     {
@@ -68,7 +72,11 @@ function App() {
     },
   ]);
 
-  return <RouterProvider router={router} />;
+  return (
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
+  );
 }
 
 export default App;
