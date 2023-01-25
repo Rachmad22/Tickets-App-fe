@@ -6,8 +6,13 @@ import UpcomingMovieCard from "../../components/molecules/upcomingMovieCard";
 import Navbar from "../../components/organisms/navbar";
 import Footer from "../../components/organisms/footer";
 import MonthBtn from "../../components/organisms/month-btn";
+import axios from "axios";
 
-export default function home() {
+export default function Home() {
+  React.useEffect(() => {
+    axios.get(`${process.env.REACT_APP_URL_BACKEND}/`);
+  });
+  
   return (
     <div
       id="home"
