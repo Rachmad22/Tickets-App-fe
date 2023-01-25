@@ -9,10 +9,34 @@ import MonthBtn from "../../components/organisms/month-btn";
 import axios from "axios";
 
 export default function Home() {
+  let [movie, setMovie] = React.useState([]);
+  let [upcomingMovie, setUpcomingMovie] = React.useState([]);
+  let [isLoading, setIsLoading] = React.useState(true);
+
   React.useEffect(() => {
-    axios.get(`${process.env.REACT_APP_URL_BACKEND}/`);
-  });
-  
+    // setIsLoading(true)
+    // setMovie([]);
+    axios
+      .get(`${process.env.REACT_APP_URL_BACKEND}/movies`)
+      .then((data) => {
+        console.log(data?.data?.data);
+        setMovie(data?.data?.data);
+      })
+      .catch(() => setMovie([]))
+      .finally(() => setIsLoading(false));
+  }, []);
+
+  React.useEffect(() => {
+    axios
+      .get(`${process.env.REACT_APP_URL_BACKEND}/upcoming-movies`)
+      .then((data) => {
+        console.log(data?.data?.data);
+        setUpcomingMovie(data?.data?.data);
+      })
+      .catch(() => setUpcomingMovie([]))
+      .finally(() => setIsLoading(false));
+  }, []);
+
   return (
     <div
       id="home"
@@ -61,7 +85,23 @@ export default function Home() {
             </div>
           </div>
           <div className="row card-movies">
-            <div className="col-2">
+            {movie.map((item, key) => {
+              return (
+                <div
+                  className="col-2"
+                  style={{ marginRight: "35px" }}
+                  key={key}
+                >
+                  <NovMovieCard
+                    image={item?.photo}
+                    name={item?.name}
+                    genre={item?.genre}
+                    url={item?.slug}
+                  />
+                </div>
+              );
+            })}
+            {/* <div className="col-2">
               <NovMovieCard />
             </div>
             <div className="col-2" style={{ marginLeft: "45px" }}>
@@ -75,7 +115,7 @@ export default function Home() {
             </div>
             <div className="col-2" style={{ marginLeft: "45px" }}>
               <NovMovieCard />
-            </div>
+            </div> */}
           </div>
         </section>
       </div>
@@ -98,7 +138,23 @@ export default function Home() {
           <MonthBtn />
           {/* CARD UPCOMING MOVIES */}
           <div className="row UpMovieCard mt-5">
-            <div className="col-2">
+            {upcomingMovie.map((item, key) => {
+              return (
+                <div
+                  className="col-2"
+                  style={{ marginRight: "35px" }}
+                  key={key}
+                >
+                  <UpcomingMovieCard
+                    image={item?.photo}
+                    name={item?.name}
+                    genre={item?.genre}
+                    url={item?.slug}
+                  />
+                </div>
+              );
+            })}
+            {/* <div className="col-2">
               <UpcomingMovieCard />
             </div>
             <div className="col-2" style={{ marginLeft: "45px" }}>
@@ -112,7 +168,7 @@ export default function Home() {
             </div>
             <div className="col-2" style={{ marginLeft: "45px" }}>
               <UpcomingMovieCard />
-            </div>
+            </div> */}
           </div>
         </div>
       </section>

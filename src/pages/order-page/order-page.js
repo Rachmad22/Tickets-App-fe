@@ -175,7 +175,7 @@ export default function OrderPage() {
                       02:00
                     </p>
                     <p className="price mb-3">$10</p>
-                    <p className="seat">C4, C5, C6</p>
+                    <p className="seat">C6</p>
                   </div>
                 </div>
                 {/* PRICE */}
@@ -195,7 +195,7 @@ export default function OrderPage() {
                           fontWeight: "500",
                         }}
                       >
-                        $30
+                        $10
                       </p>
                     </div>
                   </div>

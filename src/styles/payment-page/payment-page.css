@@ -13,6 +13,10 @@
   background-color: #aeaeae;
 }
 
+#payment-page .payment-selected {
+  background-color: #aeaeae;
+}
+
 #payment-page .payment .side-left .payment-method button img {
   width: 50%;
 }
