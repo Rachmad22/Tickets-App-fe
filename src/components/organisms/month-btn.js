@@ -2,7 +2,7 @@ import React from "react";
 
 export default function monthBtn() {
   return (
-    <div>
+    <div style={{ fontFamily: "inherit" }}>
       <div className="row btn-month">
         <div className="col-1 d-grid gap-2">
           <button type="button" className="btn btn-outline-primary month now">

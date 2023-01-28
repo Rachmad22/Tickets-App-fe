@@ -13,35 +13,39 @@ export default function Home() {
   let [upcomingMovie, setUpcomingMovie] = React.useState([]);
   let [isLoading, setIsLoading] = React.useState(true);
 
+  // GET NOW SHOWING MOVIE
   React.useEffect(() => {
-    // setIsLoading(true)
-    // setMovie([]);
     axios
-      .get(`${process.env.REACT_APP_URL_BACKEND}/movies`)
-      .then((data) => {
-        console.log(data?.data?.data);
-        setMovie(data?.data?.data);
+      .get(`${process.env.REACT_APP_URL_BACKEND}/movies?sort=release_desc`)
+      .then(({ data }) => {
+        console.log(data?.data);
+        setMovie(data?.data);
       })
-      .catch(() => setMovie([]))
-      .finally(() => setIsLoading(false));
+      .catch(() => {
+        setMovie([]);
+      });
   }, []);
 
+  // GET UPCOMING MOVIE
   React.useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_URL_BACKEND}/upcoming-movies`)
-      .then((data) => {
-        console.log(data?.data?.data);
-        setUpcomingMovie(data?.data?.data);
+      .get(
+        `${process.env.REACT_APP_URL_BACKEND}/upcoming-movies?sort=release_asc`
+      )
+      .then(({ data }) => {
+        console.log(data?.data);
+        setUpcomingMovie(data?.data);
       })
-      .catch(() => setUpcomingMovie([]))
-      .finally(() => setIsLoading(false));
+      .catch(() => {
+        setUpcomingMovie([]);
+      });
   }, []);
 
   return (
     <div
       id="home"
       className=" container-fluid clearfix"
-      style={{ paddingLeft: "0", paddingRight: "0" }}
+      style={{ paddingLeft: "0", paddingRight: "0", fontFamily: "inherit" }}
     >
       {/* NAVBAR */}
       <Navbar />
@@ -51,18 +55,18 @@ export default function Home() {
       <section className="container" style={{ marginTop: "80px" }}>
         <div className="container home-page">
           <div className="row">
-            <div className="col-6">
+            <div className="col-sm-6">
               <div className="slogan">
                 <p>Nearest Cinema, Newest Movie,</p>
                 <h1>Find out now!</h1>
               </div>
             </div>
-            <div className="col-6">
+            <div className="col-sm-6">
               <div className="home-image">
                 <img
                   src={require("../../asset/img-home.webp")}
                   alt="icon-app"
-                  style={{ width: "500px", marginTop: "15px" }}
+                  style={{ width: "38vw", marginTop: "15px" }}
                 ></img>
               </div>
             </div>
@@ -85,7 +89,7 @@ export default function Home() {
             </div>
           </div>
           <div className="row card-movies">
-            {movie.map((item, key) => {
+            {movie.slice(0, 5).map((item, key) => {
               return (
                 <div
                   className="col-2"
@@ -101,21 +105,6 @@ export default function Home() {
                 </div>
               );
             })}
-            {/* <div className="col-2">
-              <NovMovieCard />
-            </div>
-            <div className="col-2" style={{ marginLeft: "45px" }}>
-              <NovMovieCard />
-            </div>
-            <div className="col-2" style={{ marginLeft: "45px" }}>
-              <NovMovieCard />
-            </div>
-            <div className="col-2" style={{ marginLeft: "45px" }}>
-              <NovMovieCard />
-            </div>
-            <div className="col-2" style={{ marginLeft: "45px" }}>
-              <NovMovieCard />
-            </div> */}
           </div>
         </section>
       </div>
@@ -138,7 +127,7 @@ export default function Home() {
           <MonthBtn />
           {/* CARD UPCOMING MOVIES */}
           <div className="row UpMovieCard mt-5">
-            {upcomingMovie.map((item, key) => {
+            {upcomingMovie.slice(0, 5).map((item, key) => {
               return (
                 <div
                   className="col-2"
@@ -154,21 +143,6 @@ export default function Home() {
                 </div>
               );
             })}
-            {/* <div className="col-2">
-              <UpcomingMovieCard />
-            </div>
-            <div className="col-2" style={{ marginLeft: "45px" }}>
-              <UpcomingMovieCard />
-            </div>
-            <div className="col-2" style={{ marginLeft: "45px" }}>
-              <UpcomingMovieCard />
-            </div>
-            <div className="col-2" style={{ marginLeft: "45px" }}>
-              <UpcomingMovieCard />
-            </div>
-            <div className="col-2" style={{ marginLeft: "45px" }}>
-              <UpcomingMovieCard />
-            </div> */}
           </div>
         </div>
       </section>

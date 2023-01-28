@@ -17,6 +17,7 @@ export default function Logout() {
         justifyContent: "center",
         alignItems: "center",
         height: "100vh",
+        fontFamily: "inherit",
       }}
     >
       <div>

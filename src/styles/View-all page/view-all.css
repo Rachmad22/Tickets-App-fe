@@ -88,9 +88,15 @@
 }
 
 #view-all .movies .card-movies .genre {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: bold;
   color: #A0A3BD;
+  overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    line-height: 27px;
 }
 
 #view-all .movies .card-movies .btn {

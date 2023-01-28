@@ -33,7 +33,11 @@ export default function Signup() {
   }, []);
 
   return (
-    <div id="Sign-up" className="container-fluid clearfix">
+    <div
+      id="Sign-up"
+      className="container-fluid clearfix"
+      style={{ fontFamily: "inherit" }}
+    >
       <div className="container">
         <div className="row">
           {/* LEFT-SIDE */}

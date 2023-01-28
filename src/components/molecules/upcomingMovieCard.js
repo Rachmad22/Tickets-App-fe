@@ -10,23 +10,35 @@ export default function UpcomingMovieCard(props) {
   const { image, name, genre, url } = props;
   return (
     <div>
-      <div className="card p-3 text-center" style={{ width: "190px" }}>
-        <img
-          src={image}
-          className="card-img-top"
-          alt="..."
-          style={{ height: "200px", objectFit: "cover" }}
-        />
+      <div
+        className="card p-3 text-center mb-3 shadow"
+        style={{ width: "190px", height: "400px" }}
+      >
+        <div>
+          <img
+            src={image}
+            className="card-img-top"
+            alt="..."
+            style={{ height: "200px", objectFit: "cover" }}
+          />
+        </div>
         <div className="card-body">
-          <h5 className="card-title title-movie">{name}</h5>
-          <p className="card-text genre">{genre}</p>
+          <h5
+            className="card-title title-movie"
+            style={{
+              height: "50px",
+            }}
+          >
+            {name}
+          </h5>
+          <p className="card-text genre border-bottom pb-2">{genre}</p>
           <button
             className="btn btn-outline-primary d-grid gap-2"
             style={{ width: "100%" }}
             onClick={() => {
               axios
                 .get(
-                  `${process.env.REACT_APP_URL_BACKEND}/movies/search/${name}`
+                  `${process.env.REACT_APP_URL_BACKEND}/upcoming-movies/search/${name}`
                 )
                 .then(({ data }) => {
                   dispatch(

@@ -11,27 +11,27 @@ export default function NovMovieCard(props) {
   return (
     <div>
       <div
-        class="card p-3 text-center"
-        style={{ width: "190px", height: "390px" }}
+        className="card p-3 text-center mb-3 shadow-sm"
+        style={{ width: "190px", height: "400px" }}
       >
-        <img
-          src={image}
-          class="card-img-top"
-          alt="photo Movie"
-          style={{ height: "200px", objectFit: "cover" }}
-        />
-        <div class="card-body">
+        <div>
+          <img
+            src={image}
+            className="card-img-top"
+            alt="photo Movie"
+            style={{ height: "200px", objectFit: "cover" }}
+          />
+        </div>
+        <div className="card-body">
           <h5
-            class="card-title title-movie"
+            className="card-title title-movie"
             style={{
-              overflow: "hidden",
-              whiteSpace: "pre-line",
-              textOverflow: "ellipsis",
+              height: "50px",
             }}
           >
             {name}
           </h5>
-          <p class="card-text genre">{genre}</p>
+          <p className="card-text genre border-bottom pb-2">{genre}</p>
           <button
             className="btn btn-outline-primary d-grid gap-2"
             style={{ width: "100%" }}

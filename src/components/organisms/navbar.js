@@ -32,7 +32,7 @@ export default function Navbar() {
   }
 
   return (
-    <div id="navbar">
+    <div id="navbar" style={{ fontFamily: "inherit" }}>
       <div
         className="container-fluid shadow-sm"
         style={{
