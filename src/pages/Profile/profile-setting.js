@@ -26,7 +26,7 @@ export default function Profile() {
     <div
       id="profile-setting"
       className=" container-fluid clearfix"
-      style={{ paddingLeft: "0", paddingRight: "0" }}
+      style={{ paddingLeft: "0", paddingRight: "0", fontFamily: "inherit" }}
     >
       {/* NAVBAR */}
       <Navbar />

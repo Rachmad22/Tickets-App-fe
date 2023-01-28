@@ -22,7 +22,7 @@ export default function TicketResultReady() {
     <div
       id="ticketReady"
       className=" container-fluid clearfix"
-      style={{ paddingLeft: "0", paddingRight: "0" }}
+      style={{ paddingLeft: "0", paddingRight: "0", fontFamily: "inherit" }}
     >
       {/* NAVBAR */}
       <Navbar />
@@ -45,7 +45,7 @@ export default function TicketResultReady() {
               >
                 <h5 className="m-4 mt-2">Proof of Payment</h5>
                 <div className="row mb-5">
-                  <div className="col-10 border rounded-4 p-0 offset-1">
+                  <div className="col-10 border rounded-4 p-0 offset-1 shadow">
                     <img
                       src={require("../../asset/Ticket.png")}
                       alt="ticket"

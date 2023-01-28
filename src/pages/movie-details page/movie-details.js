@@ -11,7 +11,6 @@ export default function MovieDetails() {
   const navigate = useNavigate();
   const { movie } = useSelector((state) => state);
 
-
   // CHECK IS ALREADY LOGIN
   React.useEffect(() => {
     const isLogin = localStorage.getItem("isSignIn");
@@ -26,7 +25,7 @@ export default function MovieDetails() {
     <div
       id="movie-details"
       className=" container-fluid clearfix"
-      style={{ paddingLeft: "0", paddingRight: "0" }}
+      style={{ paddingLeft: "0", paddingRight: "0", fontFamily: "inherit" }}
     >
       {/* NAVBAR */}
       <Navbar />
@@ -43,7 +42,11 @@ export default function MovieDetails() {
               className="card p-5 text-center"
               style={{ width: "335px", borderRadius: "20px" }}
             >
-              <img src={movie?.data?.photo} className="card-img-top" alt="..." />
+              <img
+                src={movie?.data?.photo}
+                className="card-img-top"
+                alt="..."
+              />
             </div>
           </div>
           <div className="col-8 detail">

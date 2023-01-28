@@ -18,17 +18,34 @@ export default function ViewAll() {
   let [movie, setMovie] = React.useState([]);
   let [isLoading, setIsLoading] = React.useState(true);
   let [keyword, setKeyword] = React.useState("");
+  let [currentPage, setCurrentPage] = React.useState(1);
+  let [totalPage, setTotalPage] = React.useState(1);
 
+  // PAGINATION PAGE AND LIMIT
   React.useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_URL_BACKEND}/movies`)
-      .then((data) => {
-        console.log(data?.data?.data);
-        setMovie(data?.data?.data);
+      .get(`${process.env.REACT_APP_URL_BACKEND}/movies?page=1&limit=4`)
+      .then(({ data }) => {
+        setMovie(data?.data);
+        // setTotalPage(data?.all_pagination / 2);
       })
       .catch(() => setMovie([]))
       .finally(() => setIsLoading(false));
   }, []);
+
+  const fetchPagination = (pageParam) => {
+    axios
+      .get(
+        `${process.env.REACT_APP_URL_BACKEND}/movies?page=${pageParam}&limit=4`
+      )
+      .then(({ data }) => {
+        setMovie(data?.data);
+        // setTotalPage(data?.all_pagination / 2);
+        setCurrentPage(pageParam);
+      })
+      .catch(() => setMovie([]))
+      .finally(() => setIsLoading(false));
+  };
 
   // CHECK IS ALREADY LOGIN
   React.useEffect(() => {
@@ -44,7 +61,7 @@ export default function ViewAll() {
     axios
       .get(`${process.env.REACT_APP_URL_BACKEND}/movies/search/${keyword}`)
       .then(({ data }) => {
-        console.log(data?.data)
+        console.log(data?.data);
         setMovie(data?.data);
       })
       .catch(() => setMovie([]))
@@ -103,7 +120,7 @@ export default function ViewAll() {
                 id="exampleFormControlInput1"
                 placeholder="Search Movie Name ..."
                 onChange={(e) => {
-                  setKeyword(e.target.value)
+                  setKeyword(e.target.value);
                 }}
                 onKeyDown={(e) => {
                   if (e.key === "Enter") {
@@ -124,8 +141,8 @@ export default function ViewAll() {
       {/* END OF MONTH */}
 
       {/* MOVIES */}
-      <section className="container movies text-center">
-        <div className="row card-movies mb-5">
+      <section className="container movies text-center shadow-sm">
+        <div className="row card-movies mb-1">
           {movie.map((item, key) => {
             return (
               <div className="col-3" key={key}>
@@ -146,26 +163,23 @@ export default function ViewAll() {
       <div className="container paginat mt-4 mb-5">
         <nav aria-label="Page navigation example">
           <ul class="pagination justify-content-center">
-            <li class="page-item">
-              <a class="page-link active rounded" href="#">
-                1
-              </a>
-            </li>
-            <li class="page-item ms-2">
-              <a class="page-link rounded" href="#">
-                2
-              </a>
-            </li>
-            <li class="page-item ms-2">
-              <a class="page-link rounded" href="#">
-                3
-              </a>
-            </li>
-            <li class="page-item ms-2">
-              <a class="page-link rounded" href="#">
-                4
-              </a>
-            </li>
+            {[...new Array(totalPage)].map((item, key) => {
+              let position = ++key;
+              return (
+                <li class="page-item me-2" key={key}>
+                  <a
+                    class={`page-link rounded ${
+                      currentPage === position ? "active" : ""
+                    }`}
+                    onClick={() => {
+                      fetchPagination(position);
+                    }}
+                  >
+                    {position}
+                  </a>
+                </li>
+              );
+            })}
           </ul>
         </nav>
       </div>

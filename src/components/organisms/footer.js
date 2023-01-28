@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function footer() {
   return (
-    <div>
+    <div style={{ fontFamily: "inherit" }}>
       <footer className="container footer">
         <div
           className="container"

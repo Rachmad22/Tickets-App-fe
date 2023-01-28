@@ -24,7 +24,11 @@ export default function SignIn() {
   }, []);
 
   return (
-    <div id="Sign-in" className="container-fluid clearfix">
+    <div
+      id="Sign-in"
+      className="container-fluid clearfix"
+      style={{ fontFamily: "inherit" }}
+    >
       <div className="container">
         <div className="row">
           {/* LEFT-SIDE */}
@@ -125,7 +129,7 @@ export default function SignIn() {
                           }
                         })
                         .finally(() => setIsLoading(false));
-                      console.log("sbbs")
+                      console.log("sbbs");
                     }
                   }}
                   type="password"

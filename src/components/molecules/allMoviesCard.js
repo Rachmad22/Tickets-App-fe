@@ -11,18 +11,27 @@ export default function AllMoviesCard(props) {
   return (
     <div>
       <div
-        class="card p-2 text-center"
-        style={{ width: "180px", marginLeft: "15px", height: "390px" }}
+        class="card p-2 text-center  shadow-sm"
+        style={{ width: "180px", marginLeft: "15px", height: "400px" }}
       >
-        <img
-          src={image}
-          class="card-img-top"
-          alt="movie photo"
-          style={{ height: "200px", objectFit: "cover" }}
-        />
+        <div>
+          <img
+            src={image}
+            class="card-img-top"
+            alt="movie photo"
+            style={{ height: "210px", objectFit: "cover" }}
+          />
+        </div>
         <div class="card-body">
-          <h5 class="card-title title-movie">{name}</h5>
-          <p class="card-text genre">{genre}</p>
+          <h5
+            class="card-title title-movie"
+            style={{
+              height: "50px",
+            }}
+          >
+            {name}
+          </h5>
+          <p class="card-text genre border-bottom pb-2">{genre}</p>
           <button
             className="btn btn-outline-primary d-grid gap-2"
             style={{ width: "100%" }}

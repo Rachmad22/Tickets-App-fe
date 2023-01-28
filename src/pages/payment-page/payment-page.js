@@ -28,7 +28,7 @@ export default function PaymentPage() {
     <div
       id="payment-page"
       className="container-fluid"
-      style={{ paddingLeft: "0", paddingRight: "0" }}
+      style={{ paddingLeft: "0", paddingRight: "0", fontFamily: "inherit" }}
     >
       {/* NAVBAR */}
       <Navbar />
@@ -44,7 +44,10 @@ export default function PaymentPage() {
             {/* LEFT SIDE */}
             <div className="col-8">
               <h4 className="sub-title pb-2">Movie Selected</h4>
-              <div className="side-left p-5" style={{ width: "100%" }}>
+              <div
+                className="side-left p-5 shadow-sm"
+                style={{ width: "100%" }}
+              >
                 <div className="row border-bottom date mb-3">
                   <div className="col-3">
                     <p style={{ color: "#6B6B6B" }}>Date & time</p>
@@ -88,7 +91,10 @@ export default function PaymentPage() {
               </div>
               {/* Choose a Payment Method */}
               <h4 className="sub-title pb-2 mt-5">Choose a Payment Method</h4>
-              <div className="side-left p-5" style={{ width: "100%" }}>
+              <div
+                className="side-left p-5 shadow-sm"
+                style={{ width: "100%" }}
+              >
                 <div className="row mb-4 payment-method">
                   <div className="col-3">
                     <button

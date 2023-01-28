@@ -22,7 +22,7 @@ export default function OrderPage() {
     <div
       id="order-page"
       className="container-fluid"
-      style={{ paddingLeft: "0", paddingRight: "0" }}
+      style={{ paddingLeft: "0", paddingRight: "0", fontFamily: "inherit" }}
     >
       {/* NAVBAR */}
       <Navbar />
@@ -39,7 +39,7 @@ export default function OrderPage() {
             <div className="col-8">
               <h4 className="sub-title-selected pb-2">Movie Selected</h4>
               <div
-                className="movie-selected ps-5 pt-4 pb-4 pe-4"
+                className="movie-selected ps-5 pt-4 pb-4 pe-4 shadow-sm"
                 style={{ width: "100%" }}
               >
                 <div className="row">
@@ -61,7 +61,7 @@ export default function OrderPage() {
               {/* CHOOSE YOUR SEAT */}
               <h4 className="sub-title-seat mt-5 mb-3">Choose Your Seat</h4>
               <div
-                className="seat ps-5 pt-4 pb-4 pe-4"
+                className="seat ps-5 pt-4 pb-4 pe-4 shadow-sm"
                 style={{ width: "100%" }}
               >
                 <div className="row">
