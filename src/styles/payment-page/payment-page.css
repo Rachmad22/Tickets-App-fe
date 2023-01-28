@@ -6,7 +6,7 @@
 
 #payment-page .payment .side-left .payment-method button {
   width: 100%;
-  padding: 10px;
+  padding: 13px;
 }
 
 #payment-page .payment .side-left .payment-method button:focus {
@@ -15,6 +15,7 @@
 
 #payment-page .payment-selected {
   background-color: #aeaeae;
+  border: inset 1px #5F2EEA;
 }
 
 #payment-page .payment .side-left .payment-method button img {
@@ -39,7 +40,7 @@
   font-size: 14px;
   color: #5F2EEA;
   border-radius: 4px;
-  background-color: white;
+  background-color: transparent;
   border: 1px solid #5F2EEA;
 }
 
