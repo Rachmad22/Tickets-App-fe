@@ -283,6 +283,7 @@ export default function PaymentPage() {
                     class="form-control"
                     id="exampleFormControlInput1"
                     placeholder={`${profile.firstname} ${profile.lastname}`}
+                    disabled
                   />
                 </div>
                 <div className="email mb-4 p-0">
@@ -294,6 +295,7 @@ export default function PaymentPage() {
                     class="form-control"
                     id="exampleFormControlInput1"
                     placeholder={profile.email}
+                    disabled
                   />
                 </div>
                 <div className="phone p-0">
@@ -305,6 +307,7 @@ export default function PaymentPage() {
                     class="form-control"
                     id="exampleFormControlInput1"
                     placeholder={profile.phone}
+                    disabled
                   />
                 </div>
               </div>
