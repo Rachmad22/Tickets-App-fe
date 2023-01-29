@@ -24,10 +24,11 @@ export default function ViewAll() {
   // PAGINATION PAGE AND LIMIT
   React.useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_URL_BACKEND}/movies?page=1&limit=4`)
+      .get(`${process.env.REACT_APP_URL_BACKEND}/movies?page=1&limit=8`)
       .then(({ data }) => {
+        let totalPage = Math.ceil(data?.all_pagination / 8);
         setMovie(data?.data);
-        // setTotalPage(data?.all_pagination / 2);
+        setTotalPage(totalPage);
       })
       .catch(() => setMovie([]))
       .finally(() => setIsLoading(false));
@@ -36,11 +37,12 @@ export default function ViewAll() {
   const fetchPagination = (pageParam) => {
     axios
       .get(
-        `${process.env.REACT_APP_URL_BACKEND}/movies?page=${pageParam}&limit=4`
+        `${process.env.REACT_APP_URL_BACKEND}/movies?page=${pageParam}&limit=8`
       )
       .then(({ data }) => {
+        let totalPage = Math.ceil(data?.all_pagination / 8);
         setMovie(data?.data);
-        // setTotalPage(data?.all_pagination / 2);
+        setTotalPage(totalPage);
         setCurrentPage(pageParam);
       })
       .catch(() => setMovie([]))
@@ -167,7 +169,7 @@ export default function ViewAll() {
               let position = ++key;
               return (
                 <li class="page-item me-2" key={key}>
-                  <a
+                  <button
                     class={`page-link rounded ${
                       currentPage === position ? "active" : ""
                     }`}
@@ -176,7 +178,7 @@ export default function ViewAll() {
                     }}
                   >
                     {position}
-                  </a>
+                  </button>
                 </li>
               );
             })}
