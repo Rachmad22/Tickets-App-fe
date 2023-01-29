@@ -14,18 +14,29 @@
 }
 
 #view-all .search .dropdown select {
-  width: 100px;
+  width: 140px;
   padding: 8px 10px;
   background-color: white;
   color: #4E4B66;
   font-size: 14px;
   border-color: #DEDEDE;
+  margin-left: 50px;
   border-radius: 10px;
+  overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
 }
 
 #view-all .search .dropdown select:focus {
   box-shadow: 0px 4px 10px 3px rgba(0, 0, 0, 0.11);
   border-color: #5F2EEA;
+}
+
+#view-all .search .dropdown select option {
+  box-shadow: 0px 4px 10px 3px rgba(0, 0, 0, 0.11);
+  border-color: red;
 }
 
 #view-all .search .search-movie input {
