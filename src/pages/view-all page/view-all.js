@@ -34,6 +34,7 @@ export default function ViewAll() {
       .finally(() => setIsLoading(false));
   }, []);
 
+  // PAGINATION PAGE AND LIMIT
   const fetchPagination = (pageParam) => {
     axios
       .get(
@@ -49,6 +50,18 @@ export default function ViewAll() {
       .finally(() => setIsLoading(false));
   };
 
+  // FEATURE SORT
+  const fetchBySort = (sort) => {
+    axios
+      .get(`${process.env.REACT_APP_URL_BACKEND}/movies?sort=${sort}`)
+      .then(({ data }) => {
+        setMovie(data?.data);
+        setTotalPage(0);
+      })
+      .catch(() => setMovie([]))
+      .finally(() => setIsLoading(false));
+  };
+
   // CHECK IS ALREADY LOGIN
   React.useEffect(() => {
     const isLogin = localStorage.getItem("isSignIn");
@@ -59,15 +72,29 @@ export default function ViewAll() {
     }
   }, []);
 
+  // FEATURE SEARCH MOVIE
   const fetchByKeyword = () => {
-    axios
-      .get(`${process.env.REACT_APP_URL_BACKEND}/movies/search/${keyword}`)
-      .then(({ data }) => {
-        console.log(data?.data);
-        setMovie(data?.data);
-      })
-      .catch(() => setMovie([]))
-      .finally(() => setIsLoading(false));
+    if (keyword && keyword !== "") {
+      axios
+        .get(`${process.env.REACT_APP_URL_BACKEND}/movies/search/${keyword}`)
+        .then(({ data }) => {
+          console.log(data?.data);
+          setMovie(data?.data);
+          setTotalPage(0);
+        })
+        .catch(() => setMovie([]))
+        .finally(() => setIsLoading(false));
+    } else {
+      axios
+        .get(`${process.env.REACT_APP_URL_BACKEND}/movies?page=1&limit=8`)
+        .then(({ data }) => {
+          let totalPage = Math.ceil(data?.all_pagination / 8);
+          setMovie(data?.data);
+          setTotalPage(totalPage);
+        })
+        .catch(() => setMovie([]))
+        .finally(() => setIsLoading(false));
+    }
   };
 
   return (
@@ -97,20 +124,23 @@ export default function ViewAll() {
             <div className="col-2">
               <p className="fw-bold mb-4 sub-title">List Movie</p>
             </div>
-            <div className="col-1 offset-6">
+            <div className="col-2 offset-5">
               <div className="dropdown">
                 <div class="dropdown">
                   <select
                     className="form-select"
                     aria-label="Default select example"
+                    onChange={(e) => {
+                      fetchBySort(e.target.value);
+                    }}
                   >
                     <option selected disabled>
                       Sort
                     </option>
-                    <option value="1">A - Z</option>
-                    <option value="2">Z - A</option>
-                    <option value="3">Latest Release</option>
-                    <option value="4">Longest Release</option>
+                    <option value="name_asc">A - Z</option>
+                    <option value="name_desc">Z - A</option>
+                    <option value="release_asc">Oldest Release</option>
+                    <option value="release_desc">Newest Release</option>
                   </select>
                 </div>
               </div>
@@ -170,7 +200,7 @@ export default function ViewAll() {
               return (
                 <li class="page-item me-2" key={key}>
                   <button
-                    class={`page-link rounded ${
+                    className={`page-link rounded ${
                       currentPage === position ? "active" : ""
                     }`}
                     onClick={() => {
