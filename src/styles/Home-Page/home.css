@@ -79,11 +79,11 @@
   font-weight: bold;
   color: #A0A3BD;
   overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
-    line-height: 27px;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  line-height: 27px;
 }
 
 #home .now-showing .card-movies .btn {
@@ -148,13 +148,13 @@
 
 #home .upcoming-movies .UpMovieCard .title-movie {
   font-size: 19px;
-    font-weight: bold;
-    line-height: 25px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
+  font-weight: bold;
+  line-height: 25px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
 #home .upcoming-movies .UpMovieCard .genre {
@@ -162,11 +162,11 @@
   font-weight: bold;
   color: #A0A3BD;
   overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
-    line-height: 27px;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  line-height: 27px;
 }
 
 #home .upcoming-movies .UpMovieCard .btn {
