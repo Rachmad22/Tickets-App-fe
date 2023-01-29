@@ -11,7 +11,7 @@ export default function AllMoviesCard(props) {
   return (
     <div>
       <div
-        class="card p-2 text-center  shadow-sm"
+        class="card p-2 text-center  shadow-sm mb-5"
         style={{ width: "180px", marginLeft: "15px", height: "400px" }}
       >
         <div>
