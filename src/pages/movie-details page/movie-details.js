@@ -5,11 +5,13 @@ import Navbar from "../../components/organisms/navbar";
 import Footer from "../../components/organisms/footer";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import moment from "moment/moment";
 import CardCinema from "../../components/molecules/cardCinema";
 
 export default function MovieDetails() {
   const navigate = useNavigate();
   const { movie } = useSelector((state) => state);
+  let release_date = movie?.data?.release_date.slice(0, 10);
 
   // CHECK IS ALREADY LOGIN
   React.useEffect(() => {
@@ -56,7 +58,7 @@ export default function MovieDetails() {
               <div className="row">
                 <div className="col-3">
                   <p className="sub-title">Release date</p>
-                  <p className="content">{movie?.data?.release_date}</p>
+                  <p className="content">{release_date}</p>
                 </div>
                 <div className="col-8 offset-1">
                   <p className="sub-title">Directed by</p>
