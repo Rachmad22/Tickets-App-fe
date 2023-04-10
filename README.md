@@ -78,7 +78,6 @@ npm run start
           <b>Maulana Ismail</b>
         </a>
       </td>
-
     </tr>
   </table>
 </center>
