@@ -16,6 +16,11 @@ import Logout from "./pages/account/logout";
 import store from "./store/index";
 import { Provider } from "react-redux";
 
+// Google Analytics
+import ReactGA from "react-ga4";
+
+ReactGA.initialize("G-HYGDKFXJ7Y");
+
 function App() {
   const router = createBrowserRouter([
     {
